@@ -22,7 +22,11 @@
             <Button x:Name="CloseButton" FontWeight="Bold" FontSize="6" Click="Exit_Click" Height="15" Width="15" DockPanel.Dock="Right">
                 <Image Source="Icons/close.ico" />
             </Button>
-            <Rectangle x:Name="DragHandleLeft"  Width="15" Height="15" MouseDown="DragHandle_MouseLeftButtonDown" DockPanel.Dock="Left" />
+            <Rectangle x:Name="DragHandleLeft"  Width="15" Height="15" MouseDown="DragHandle_MouseLeftButtonDown" DockPanel.Dock="Left">
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="IndicatorIcon" Stretch="Uniform" ImageSource="Icons/Muted.ico" />
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle x:Name="DragHandle" Width="auto" MouseDown="DragHandle_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <ImageBrush Stretch="Uniform" ImageSource="Icons/drag.ico" />

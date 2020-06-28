@@ -5,7 +5,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.Drawing;
-using ezmute.Classes;
+using ezmute.Tools;
 using System.Windows.Media;
 
 namespace ezmute
@@ -71,8 +71,9 @@ namespace ezmute
                 MuteToggleButton.Background = System.Windows.Media.Brushes.Red;
             }
             MuteToggleButton.Content = "MUTED";
-            this.Title = "MUTED - ezmute";
-            this.Icon = mutedIcon;
+            Title = "MUTED - ezmute";
+            Icon = mutedIcon;
+            IndicatorIcon.ImageSource = mutedIcon;
             tbi.Icon = mutedIconIcon;
             tbi.ToolTipText = "MUTED - ezmute";
             ShowBalloonTip("Muted", "All input devices muted!");
@@ -94,8 +95,9 @@ namespace ezmute
                 MuteToggleButton.Background = System.Windows.Media.Brushes.Green;
             }
             MuteToggleButton.Content = "UNMUTED";
-            this.Title = "UNMUTED - ezmute";
-            this.Icon = unmutedIcon;
+            Title = "UNMUTED - ezmute";
+            Icon = unmutedIcon;
+            IndicatorIcon.ImageSource = unmutedIcon;
             tbi.Icon = unmutedIconIcon;
             tbi.ToolTipText = "UNMUTED - ezmute";
             ShowBalloonTip("Unmuted", "All input devices unmuted!");

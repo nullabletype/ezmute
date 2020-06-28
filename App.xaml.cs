@@ -1,12 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using NAudio.Midi;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ezmute
@@ -17,7 +10,7 @@ namespace ezmute
     public partial class App : Application
     {
         public IConfiguration BaseConfiguration { get; private set; }
-        public Classes.Configuration Configuration { get; private set; }
+        public Tools.Configuration Configuration { get; private set; }
 
         protected void AppStart(object sender, StartupEventArgs e)
         {
@@ -33,7 +26,7 @@ namespace ezmute
                                         .AddJsonFile(configFile, optional: false, reloadOnChange: true);
 
             BaseConfiguration = builder.Build();
-            Configuration = new Classes.Configuration();
+            Configuration = new Tools.Configuration();
 
             BaseConfiguration.GetSection("config").Bind(Configuration);
 

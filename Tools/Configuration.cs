@@ -1,4 +1,4 @@
-﻿namespace ezmute.Classes
+﻿namespace ezmute.Tools
 {
     public class Configuration
     {
