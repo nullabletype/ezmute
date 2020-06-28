@@ -44,4 +44,8 @@
     </None>
   </ItemGroup>
 
+  <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
+    <Copy SourceFiles="config.json" DestinationFolder="$(PublishDir)" />
+  </Target>
+
 </Project>
