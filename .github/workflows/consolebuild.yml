@@ -12,7 +12,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.5
+        dotnet-version: 3.1.301
 
     - name: build
       run: dotnet build -c Release ezmute.sln
@@ -38,9 +38,17 @@ jobs:
       run: pushd /home/runner/work/ezmute-release/win-x86 && zip -r /home/runner/work/ezmute-release/zips/ezmute-win-x86.zip * && popd
     - uses: actions/upload-artifact@v1
       with:
-        name: octoplus--win-x64
-        path: /home/runner/work/octoplus-release/zips/octoplus-win-x64.zip
+        name: octoplus-standalone-win-x64
+        path: /home/runner/work/ezmute-release/zips/ezmute-standalone-win-x64.zip
+    - uses: actions/upload-artifact@v1
+      with:
+        name: octoplus-standalone-win-x86
+        path: /home/runner/work/ezmute-release/zips/ezmute-standalone-win-x86.zip
+    - uses: actions/upload-artifact@v1
+      with:
+        name: octoplus-win-x64
+        path: /home/runner/work/ezmute-release/zips/octoplus-win-x64.zip
     - uses: actions/upload-artifact@v1
       with:
         name: octoplus-win-x86
-        path: /home/runner/work/octoplus-release/zips/octoplus-win-x86.zip
+        path: /home/runner/work/ezmute-release/zips/octoplus-win-x86.zip
