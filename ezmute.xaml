@@ -1,0 +1,45 @@
+﻿<Window x:Class="ezmute.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ezmute" xmlns:tb="http://www.hardcodet.net/taskbar"
+        mc:Ignorable="d"
+        Title="ezmute" 
+        Height="100" 
+        Width="170" 
+        PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus"
+        WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Width="auto">
+            <Button x:Name="CloseButton" FontWeight="Bold" FontSize="6" Click="Exit_Click" Height="15" Width="15" DockPanel.Dock="Right">
+                <Image Source="Icons/close.ico" />
+            </Button>
+            <Rectangle x:Name="DragHandleLeft"  Width="15" Height="15" MouseDown="DragHandle_MouseLeftButtonDown" DockPanel.Dock="Left" />
+            <Rectangle x:Name="DragHandle" Width="auto" MouseDown="DragHandle_MouseLeftButtonDown">
+                <Rectangle.Fill>
+                    <ImageBrush Stretch="Uniform" ImageSource="Icons/drag.ico" />
+                </Rectangle.Fill>
+            </Rectangle>
+        </DockPanel>
+        <Button Grid.Row="1" x:Name="MuteToggleButton" Content="Mute" FontWeight="Bold" FontSize="20" Click="MuteToggleButton_Click" DockPanel.Dock="Bottom" />
+
+        <tb:TaskbarIcon MenuActivation="LeftOrRightClick" ToolTip="ezmute" Name="tbi" >
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="ezmute" />
+                    <MenuItem Header="Toggle Mute" Click="MuteToggleButton_Click" />
+                    <MenuItem Header="Exit" Click="Exit_Click" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+    </Grid>
+
+</Window>

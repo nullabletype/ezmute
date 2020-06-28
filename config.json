@@ -1,0 +1,24 @@
+{
+  "config": {
+    "ShowToolTipsOnChange": true,
+    "StartingPosition": {
+      "X": 3000,
+      "Y": 500
+    },
+    "StartingSize": {
+      "X": 150,
+      "Y": 75
+    },
+    "Key": {
+      "Key": "K"
+    },
+    "ModifierKey": {
+      "Key": "Alt"
+    },
+    "AlwaysOnTop": true,
+    "BackgroundColour": "#000000",
+    "MutedColour": "#ff6666",
+    "UnmutedColour": "#66cc66",
+    "FontSize": 34
+  }
+}
