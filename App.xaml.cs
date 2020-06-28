@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using NAudio.Midi;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,9 +21,16 @@ namespace ezmute
 
         protected void AppStart(object sender, StartupEventArgs e)
         {
+            string configFile = "config.json";
+
+            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "custom-config.json")))
+            {
+                configFile = "custom-config.json";
+            }
+
             IConfigurationBuilder builder = new ConfigurationBuilder()
                                         .SetBasePath(Directory.GetCurrentDirectory())
-                                        .AddJsonFile("config.json", optional: false, reloadOnChange: true);
+                                        .AddJsonFile(configFile, optional: false, reloadOnChange: true);
 
             BaseConfiguration = builder.Build();
             Configuration = new Classes.Configuration();

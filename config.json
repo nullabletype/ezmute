@@ -2,15 +2,15 @@
   "config": {
     "ShowToolTipsOnChange": true,
     "StartingPosition": {
-      "X": 3000,
-      "Y": 500
+      "X": 200,
+      "Y": 200
     },
     "StartingSize": {
       "X": 150,
       "Y": 75
     },
     "Key": {
-      "Key": "K"
+      "Key": "M"
     },
     "ModifierKey": {
       "Key": "Alt"
@@ -19,6 +19,6 @@
     "BackgroundColour": "#000000",
     "MutedColour": "#ff6666",
     "UnmutedColour": "#66cc66",
-    "FontSize": 34
+    "FontSize": 18
   }
 }
