@@ -45,12 +45,6 @@ jobs:
       with:
         name: ezmute-win-x86
         path: d:\a\ezmute-release\win-x86
-    - name: Bump version and push tag
-      id: bump_n_tag
-      uses: anothrNick/github-tag-action@1.17.2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
