@@ -3,7 +3,7 @@ name: ezmute Release Build
 on:
   push:
     branches:
-      - buildfixes
+      - v*
 
 jobs:
   build:
@@ -57,7 +57,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.bump_n_tag.outputs.new_tag }}
-        release_name: Release ${{ steps.bump_n_tag.outputs.new_tag }}
+        tag_name: "${GITHUB_REF#refs/heads/}"
+        release_name: "Release ${GITHUB_REF#refs/heads/}"
         draft: true
         prerelease: true
