@@ -27,7 +27,32 @@ Just download from the releases tab, edit the config.json and run the exe. There
 | *-standalone-win-xx86 | 32 bit version. Doesn't require any further installs but is considerably larger. |
 
 ## Configuration
-Once downloaded open config.json in your favourite text editor. Each setting is described in there.
+```
+{
+  "config": {
+    "ShowToolTipsOnChange": false, <-- Show a windows notification pop up on status change
+    "StartingPosition": { <-- Where the window shows on load in pixels from the top left
+      "X": 4100, <-- Horizontal
+      "Y": 390  <-- Vertical
+    },
+    "StartingSize": {  <-- The window size on first load
+      "X": 100,  <-- Width
+      "Y": 40  <-- Height
+    },
+    "Key": {
+      "Key": "M"  <-- The key to combine for the shortcut on your keyboard such as in Alt+M
+    },
+    "ModifierKey": {
+      "Key": "Alt"  <-- The "Modifier" key to go with the above key, such as in Alt+M.
+    },
+    "AlwaysOnTop": true,  <-- Force the window to remain on top of all other windows
+    "BackgroundColour": "#ffffff",  <-- Background colour in hexidecimal for the top bar
+    "MutedColour": "#ff6666",  <-- Button colour when muted
+    "UnmutedColour": "#66cc66",  <-- Button colour when unmuted
+    "FontSize": 12  <-- Font size for the button
+  }
+}
+```
 
 ## Credits
 - ezmute uses [NAudio](https://github.com/naudio/NAudio) to do the heavy lifting of talking to devices.
