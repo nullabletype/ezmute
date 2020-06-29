@@ -16,6 +16,13 @@ A configurable and easy to use way to mute your microphone/input devices on Wind
 - Mute status shown in Microsoft Teams
 - Can configure the size of the app, starting position, font size and colours
 
+## Whats it look like?
+All the colours are configurable, but heres a sample:
+
+![](screenshots/main-unmuted.png) ![](screenshots/main.png) 
+
+![](screenshots/tray.png) 
+
 ## Installation
 Just download from the releases tab, edit the config.json and run the exe. There are four versions available:
 
