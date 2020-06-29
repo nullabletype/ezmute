@@ -50,6 +50,14 @@ jobs:
       run: |
         $ref = ("refs/heads/v1.0.0" -Replace "refs/heads/","") -Replace "refs/tags/",""
         Write-Host "::set-output name=VERSION::$ref"
+    - name: Create Zips
+      id: create_zips
+      run: |
+        New-Item -ItemType Directory -Force -Path d:\a\ezmute-release\zips\
+        Compress-Archive -Path 'd:\a\ezmute-release\standalone-win-x64\*' 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x64.zip'
+        Compress-Archive -Path 'd:\a\ezmute-release\standalone-win-x86\*' 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x86.zip'
+        Compress-Archive -Path 'd:\a\ezmute-release\win-x64\*' 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-win-x64.zip'
+        Compress-Archive -Path 'd:\a\ezmute-release\win-x64\*' 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-win-x86.zip'
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -60,3 +68,45 @@ jobs:
         release_name: Release ${{ steps.get_version.outputs.VERSION }}
         draft: true
         prerelease: true
+    - name: Upload Release Asset standalone x64
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x64.zip'
+        asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x64.zip'
+        asset_content_type: application/zip
+    - name: Upload Release Asset standalone x86
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x86.zip'
+        asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x86.zip'
+        asset_content_type: application/zip
+    - name: Upload Release Asset x64
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-win-x64.zip'
+        asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-win-x64.zip'
+        asset_content_type: application/zip
+    - name: Upload Release Asset x86
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: 'd:\a\ezmute-release\zips\ezmute-${{ steps.get_version.outputs.VERSION }}-win-x86.zip'
+        asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-win-x86.zip'
+        asset_content_type: application/zip
+        
+        
