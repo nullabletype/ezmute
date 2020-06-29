@@ -48,18 +48,15 @@ jobs:
     - name: Get Version
       id: get_version
       run: |
-        SET _ref=${{ github.ref }}
-        SET _branch=%_ref:refs/heads/=%
-        SET _tag=%_ref:refs/tags/=%
-        echo ::set-output name=SOURCE_BRANCH::%_branch%
-        echo ::set-output name=SOURCE_TAG::%_tag%
+        $ref = ("refs/heads/v1.0.0" -Replace "refs/heads/","") -Replace "refs/tags/",""
+        Write-Host "::set-output name=VERSION::$ref"
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.get_version.outputs.SOURCE_BRANCH }}
-        release_name: Release ${{ steps.get_version.outputs.SOURCE_BRANCH }}
+        tag_name: ${{ steps.get_version.outputs.VERSION }}
+        release_name: Release ${{ steps.get_version.outputs.VERSION }}
         draft: true
         prerelease: true
