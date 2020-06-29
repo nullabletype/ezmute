@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace ezmute
+namespace ezmute.Tools
 {
 
     internal class ToggleMuteCommand : ICommand
