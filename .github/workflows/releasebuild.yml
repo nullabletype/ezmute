@@ -48,9 +48,11 @@ jobs:
     - name: Get Version
       id: get_version
       run: |
-        echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
-        echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
-        echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+        SET _ref=${{ github.ref }}
+        SET _branch=%_ref:refs/heads/=%
+        SET _tag=%_ref:refs/tags/=%
+        echo ::set-output name=SOURCE_BRANCH::%_branch%
+        echo ::set-output name=SOURCE_TAG::%_tag%
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
