@@ -69,7 +69,7 @@ jobs:
         draft: true
         prerelease: true
     - name: Upload Release Asset standalone x64
-      id: upload-release-asset 
+      id: upload_release_asset_standalone_x64
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +79,7 @@ jobs:
         asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x64.zip'
         asset_content_type: application/zip
     - name: Upload Release Asset standalone x86
-      id: upload-release-asset 
+      id: upload_release_asset_standalone_x86
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,7 +89,7 @@ jobs:
         asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-standalone-win-x86.zip'
         asset_content_type: application/zip
     - name: Upload Release Asset x64
-      id: upload-release-asset 
+      id: upload_release_asset_x64
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -99,7 +99,7 @@ jobs:
         asset_name: 'ezmute-${{ steps.get_version.outputs.VERSION }}-win-x64.zip'
         asset_content_type: application/zip
     - name: Upload Release Asset x86
-      id: upload-release-asset 
+      id: upload_release_asset_x86
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
