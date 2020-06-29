@@ -1,4 +1,4 @@
-name: ezmute Console Build
+name: ezmute Dev Build
 
 on: [push]
 
