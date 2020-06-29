@@ -20,15 +20,15 @@ jobs:
         dotnet-version: 3.1.301
 
     - name: build
-      run: dotnet build -c Release ezmute.sln
+      run: dotnet build -c Release src\ezmute.sln
     - name: publish-standalone-win-x64
-      run: dotnet publish -c Release ezmute.csproj -o d:\a\ezmute-release\standalone-win-x64 -r win-x64 /p:PublishSingleFile=true --self-contained true /p:PublishTrimmed=true /p:CopyOutputSymbolsToPublishDirectory=false
+      run: dotnet publish -c Release src\ezmute.csproj -o d:\a\ezmute-release\standalone-win-x64 -r win-x64 /p:PublishSingleFile=true --self-contained true /p:PublishTrimmed=true /p:CopyOutputSymbolsToPublishDirectory=false
     - name: publish-standalone-win-x32
-      run: dotnet publish -c Release ezmute.csproj -o d:\a\ezmute-release\standalone-win-x86 -r win-x86 /p:PublishSingleFile=true --self-contained true /p:PublishTrimmed=true /p:CopyOutputSymbolsToPublishDirectory=false
+      run: dotnet publish -c Release src\ezmute.csproj -o d:\a\ezmute-release\standalone-win-x86 -r win-x86 /p:PublishSingleFile=true --self-contained true /p:PublishTrimmed=true /p:CopyOutputSymbolsToPublishDirectory=false
     - name: publish-win-x64
-      run: dotnet publish -c Release ezmute.csproj -o d:\a\ezmute-release\win-x64 -r win-x64 /p:PublishSingleFile=true --self-contained false /p:CopyOutputSymbolsToPublishDirectory=false
+      run: dotnet publish -c Release src\ezmute.csproj -o d:\a\ezmute-release\win-x64 -r win-x64 /p:PublishSingleFile=true --self-contained false /p:CopyOutputSymbolsToPublishDirectory=false
     - name: publish-win-x32
-      run: dotnet publish -c Release ezmute.csproj -o d:\a\ezmute-release\win-x86 -r win-x86 /p:PublishSingleFile=true --self-contained false /p:CopyOutputSymbolsToPublishDirectory=false
+      run: dotnet publish -c Release src\ezmute.csproj -o d:\a\ezmute-release\win-x86 -r win-x86 /p:PublishSingleFile=true --self-contained false /p:CopyOutputSymbolsToPublishDirectory=false
     - uses: actions/upload-artifact@v2
       with:
         name: ezmute-standalone-win-x64
